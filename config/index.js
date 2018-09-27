@@ -21,6 +21,7 @@ const init = () => {
             keyAlias     : 'keyalias',
             keyPassword  : 'keystorepassword'
         },
+        
         firebase: {
             apiKey: 'AIzaSyBaoH6L38NmlYuy9HySAiMZ9nEvH1GipO0',
             authDomain: 'pluswallet-4fb78.firebaseapp.com',
