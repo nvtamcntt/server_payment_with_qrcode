@@ -1059,3 +1059,14 @@
 {"message":"http :: Server started 8000","level":"info"}
 {"message":"http :: Server started 8000","level":"info"}
 {"message":"http :: Server started 8000","level":"info"}
+{"message":"http :: Server started 8000","level":"info"}
+{"level":"error","message":"ENOENT: no such file or directory, open 'C:\\SourceCode\\NodeJSWallet\\server_payment_with_qrcode\\QRCodeProject@-sandbox.p12'"}
+{"message":"Error: ENOENT: no such file or directory, open 'C:\\SourceCode\\NodeJSWallet\\server_payment_with_qrcode\\QRCodeProject@-sandbox.p12'\n    at Object.fs.openSync (fs.js:646:18)\n    at Object.fs.readFileSync (fs.js:551:33)\n    at new OAuth (C:\\SourceCode\\NodeJSWallet\\server_payment_with_qrcode\\node_modules\\mastercard-api-core\\lib\\security\\oauth\\oauth.js:39:25)\n    at PaymentController.createMerchantTransferFundingAndPayment (C:\\SourceCode\\NodeJSWallet\\server_payment_with_qrcode\\modules\\payment\\paymentController.js:32:30)\n    at app.get (C:\\SourceCode\\NodeJSWallet\\server_payment_with_qrcode\\modules\\payment\\api.js:51:21)\n    at Layer.handle [as handle_request] (C:\\SourceCode\\NodeJSWallet\\server_payment_with_qrcode\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\SourceCode\\NodeJSWallet\\server_payment_with_qrcode\\node_modules\\express\\lib\\router\\route.js:137:13)\n    at Route.dispatch (C:\\SourceCode\\NodeJSWallet\\server_payment_with_qrcode\\node_modules\\express\\lib\\router\\route.js:112:3)\n    at Layer.handle [as handle_request] (C:\\SourceCode\\NodeJSWallet\\server_payment_with_qrcode\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\SourceCode\\NodeJSWallet\\server_payment_with_qrcode\\node_modules\\express\\lib\\router\\index.js:281:22","level":"error"}
+{"message":"http :: Server started 8000","level":"info"}
+{"message":"http :: Server started 8000","level":"info"}
+{"message":"http :: Server started 8000","level":"info"}
+{"message":"http :: Server started 8000","level":"info"}
+{"message":"http :: Server started 8000","level":"info"}
+{"message":"http :: Server started 8000","level":"info"}
+{"message":"http :: Server started 8000","level":"info"}
+{"message":"http :: Server started 8000","level":"info"}
