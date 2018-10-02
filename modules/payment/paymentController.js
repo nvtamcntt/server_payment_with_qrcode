@@ -6,72 +6,45 @@ module.exports = class PaymentController {
     constructor(config) {
         constructor();
         this.keyStore = config.keyStore;
+        this.dataTesting = this.getMerchantDataForTesting(config);
         console.log("api key store ==> ", this.keyStore.consumerKey);
         console.log("api key store ==> ", this.keyStore.keyStorePath);
         console.log("api key store ==> ", this.keyStore.keyAlias);
         console.log("api key store ==> ", this.keyStore.keyPassword);
+        console.log("data testing  ==>  " , this.dataTesting );
         this.initConfigKeystore();
     }
     initConfigKeystore(){
-        // let authentication = new MasterCardAPI.OAuth(
-        //     this.keyStore.consumerKey, 
-        //     this.keyStore.keyStorePath, 
-        //     this.keyStore.keyAlias, 
-        //     this.keyStore.keyPassword
-        // );
-        // console.log("initConfigKeystore ==> ", authentication);
-        // MasterCardAPI.init({
-        //     sandbox: true,
-        //     debug: true,  // false -> live 
-        //     authentication: authentication
-        // });
-    }
-
-    createMerchantTransferFundingAndPayment(requestData){
-         console.log(" =====================> requestData1111111 ", requestData);
         let authentication = new MasterCardAPI.OAuth(
             this.keyStore.consumerKey, 
             this.keyStore.keyStorePath, 
             this.keyStore.keyAlias, 
             this.keyStore.keyPassword
         );
-        console.log(" =====================>  111111111111111");
+        console.log("initConfigKeystore ==> ", authentication);
         MasterCardAPI.init({
-            sandbox: true,
+            // sandbox: true,
+            environment: "sandbox_static", 
             debug: true,  // false -> live 
             authentication: authentication
         });
+    }
 
+    getMerchantDataForTesting(config) {
+        let dataJson;
+        try {
+            let path = config.pathFileData;
+            path = '../../' + path;
+            dataJson = require(path);
+        } catch (err) {
+            throw err;
+        }
+        return dataJson;
+    }
 
-    var requestDataSimpleTEST = 
-    {"partnerId":"ptnr_BEeCrYJHh2BXTXPy_PEtp-8DBOo",
-    "merchant_transfer":{
-    "transfer_reference":"4007826709474811576743651734315950554193",
-    "payment_type":"P2M","transfer_amount":{"value":"18","currency":"USD"},
-    "payment_origination_country":"USA","sender_account_uri":
-    "pan:5184680430000006;exp\u003d2077-08;cvc\u003d123",
-    "digital_account_reference_number":"pan:5234568000001234","sender":{
-      "first_name":"John","middle_name":"Tyler","last_name":"Jones",
-      "address":{"line1":"21 Broadway","line2":"Apartment A-6","city":
-        "OFallon","country_subdivision":"MO","postal_code":"63368","country":
-        "USA"},"phone":"11234565555","email":"John.Jones123@abcmail.com"},
-    "recipient_account_uri":
-    "pan:5184680430000014;exp\u003d2077-08;cvc\u003d123","recipient":{
-      "first_name":"Jane","middle_name":"Tyler","last_name":"Smith",
-      "address":{"line1":"1 Main St","line2":"Apartment 9","city":
-        "OFallon","country_subdivision":"MO","postal_code":"63368","country":
-        "USA"},"phone":"11234567890","email":"Jane.Smith123@abcmail.com",
-      "merchant_category_code":"3000"},"reconciliation_data":{"custom_field":
-      [{"name":"GHI","value":"123"},{"name":"ABC","value":"456"},{"name":
-          "DEF","value":"789"}]},"transaction_local_date_time":
-    "2016-09-22T13:22:11-05:30","participant":{"card_acceptor_id":
-      "1234567890ABCDE","card_acceptor_name":"WELLS FARGO BANK NA"},
-    "participation_id":"TERMINAL34728","additional_message":"mymessage",
-    "mastercard_assigned_id":"123456"}};
-        console.log(" =====================>  2222222222222222222");
-        p2m.MerchantTransferFundingAndPayment.create(requestDataSimpleTEST, function (error, data) {
-            console.log(" =====================> requestData222222 ", requestDataSimpleTEST);
-            console.log(" nvtamcntt=====================> ", error);
+    createMerchantTransferFundingAndPayment(){
+        
+        p2m.MerchantTransferFundingAndPayment.create(this.dataTesting, function (error, data) {
             if (error) {
                 console.log("HttpStatus: "+error.getHttpStatus());
                 console.log("Message: "+error.getMessage());

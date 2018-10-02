@@ -16,12 +16,12 @@ const init = () => {
         //     patch: './config/TokenAbiOb.json'
         // },
         keyStore:{
-            consumerKey  : 'csbmYube20moXq3gDhaUyru4XJqYKVdcT9WMoMqL898a4c5d!49c8e11dfc274f239f04d1ef70ebce920000000000000000',
-            keyStorePath : 'QRCodePayment1-sandbox.p12',
+            consumerKey  : 'kUR3loVb14Ha_Doojmc0e1hkkxyNTVCc-bsZpu7728151b83!fcc55ccbb25842f295561ecf0afaf5500000000000000000',
+            keyStorePath : 'QRCodePaymentProject-sandbox.p12',
             keyAlias     : 'keyalias',
             keyPassword  : 'keystorepassword'
         },
-        
+        pathFileData: '/config/merchant_data.json',
         firebase: {
             apiKey: 'AIzaSyBaoH6L38NmlYuy9HySAiMZ9nEvH1GipO0',
             authDomain: 'pluswallet-4fb78.firebaseapp.com',
