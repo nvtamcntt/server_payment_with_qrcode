@@ -34,11 +34,11 @@ module.exports = function() {
         return req.validationErrors();
     };
     /*----------------------------------------------------------------------*/
-    app.post('/', function(req, res) {  
+    app.get('/', function(req, res) {  
         res.send({data : 'hello world', title: "Example android"});
     });
 
-    app.post('/merchantTransferFundingAndPayment', (req, res, next) => {
+    app.get('/merchantTransferFundingAndPayment', (req, res, next) => {
         try {
 
             // const validationErrors = validateParameters(req);
@@ -51,8 +51,12 @@ module.exports = function() {
             // const address = fields.address || fields['address'];
 
             // const address = req.query.address;
-            // payment.createMerchantTransferFundingAndPayment();
-            res.send({ request: req })
+            payment.createMerchantTransferFundingAndPayment()
+                .then (result => {
+                    console.log("=================> result " , result);
+                    res.send(result);
+                });
+            
         } catch (error) {
             next(error);
         }

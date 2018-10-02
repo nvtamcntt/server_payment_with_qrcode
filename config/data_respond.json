@@ -1,0 +1,124 @@
+{
+   "merchant_transfer": {
+      "mastercard_assigned_id": "123456",
+      "transaction_local_date_time": "2016-09-22T13:22:11-05:30",
+      "original_status": "APPROVED",
+      "transaction_history": {
+         "item_count": "2",
+         "data": {
+            "transaction": [
+               {
+                  "switch_serial_number": "424518675",
+                  "retrieval_reference": "06283423",
+                  "system_trace_audit_number": "315273",
+                  "transaction_amount": {
+                     "currency": "USD",
+                     "value": "18"
+                  },
+                  "resource_type": "transaction",
+                  "type": "FUNDING",
+                  "network": "MoneySend",
+                  "network_status_code": "00",
+                  "create_timestamp": "2016-09-22T13:22:11-05:30",
+                  "network_status_description": "APPROVED",
+                  "id": "txn_e0xnlxkx8l",
+                  "status_timestamp": "2016-09-22T13:22:11-05:30",
+                  "status_reason": "APPROVED",
+                  "account_uri": "pan:************0006",
+                  "status": "APPROVED",
+                  "unique_reference_number": "1122586210"
+               },
+               {
+                  "switch_serial_number": "618110374",
+                  "retrieval_reference": "57408174",
+                  "system_trace_audit_number": "513317",
+                  "transaction_amount": {
+                     "currency": "USD",
+                     "value": "18"
+                  },
+                  "resource_type": "transaction",
+                  "type": "PAYMENT",
+                  "network": "MoneySend",
+                  "network_status_code": "00",
+                  "create_timestamp": "2016-09-22T13:22:11-05:30",
+                  "network_status_description": "APPROVED",
+                  "funds_availability": "IMMEDIATE",
+                  "id": "txn_echxv523iy",
+                  "status_timestamp": "2016-09-22T13:22:11-05:30",
+                  "status_reason": "APPROVED",
+                  "account_uri": "pan:************0014",
+                  "status": "APPROVED",
+                  "unique_reference_number": "5536857577"
+               }
+            ]
+         },
+         "resource_type": "list"
+      },
+      "created": "2016-09-22T13:22:11-05:30",
+      "payment_origination_country": "USA",
+      "resource_type": "merchant_transfer",
+      "sender_account_uri": "pan:************0006",
+      "reconciliation_data": {
+         "custom_field": [
+            {
+               "name": "GHI",
+               "value": "123"
+            },
+            {
+               "name": "ABC",
+               "value": "456"
+            },
+            {
+               "name": "DEF",
+               "value": "789"
+            }
+         ]
+      },
+      "participant": {
+         "card_acceptor_id": "1234567890ABCDE",
+         "card_acceptor_name": "WELLS FARGO BANK NA"
+      },
+      "participation_id": "TERMINAL34728",
+      "recipient_account_uri": "pan:************0014",
+      "payment_type": "P2M",
+      "transfer_amount": {
+         "currency": "USD",
+         "value": "18"
+      },
+      "sender": {
+         "address": {
+            "country": "USA",
+            "city": "OFallon",
+            "postal_code": "63368",
+            "line2": "Apartment A-6",
+            "line1": "21 Broadway",
+            "country_subdivision": "MO"
+         },
+         "phone": "11234565555",
+         "last_name": "Jones",
+         "middle_name": "Tyler",
+         "first_name": "John",
+         "email": "John.Jones123@abcmail.com"
+      },
+      "recipient": {
+         "address": {
+            "country": "USA",
+            "city": "OFallon",
+            "postal_code": "63368",
+            "line2": "Apartment 9",
+            "line1": "1 Main St",
+            "country_subdivision": "MO"
+         },
+         "phone": "11234567890",
+         "merchant_category_code": "3000",
+         "last_name": "Smith",
+         "middle_name": "Tyler",
+         "first_name": "Jane"
+      },
+      "id": "mtrn_426CA5F9F79B693FA73D",
+      "transfer_reference": "3007826709474811576743651734315950554197",
+      "status_timestamp": "2016-09-22T13:22:11-05:30",
+      "status": "APPROVED",
+      "additional_message": "mymessage"
+   }
+}
