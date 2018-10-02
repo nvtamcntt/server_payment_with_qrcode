@@ -34,11 +34,11 @@ module.exports = function() {
         return req.validationErrors();
     };
     /*----------------------------------------------------------------------*/
-    app.get('/', function(req, res) {  
+    app.post('/', function(req, res) {  
         res.send({data : 'hello world', title: "Example android"});
     });
 
-    app.get('/merchantTransferFundingAndPayment', (req, res, next) => {
+    app.post('/merchantTransferFundingAndPayment', (req, res, next) => {
         try {
 
             // const validationErrors = validateParameters(req);
