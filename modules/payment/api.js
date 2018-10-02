@@ -38,7 +38,7 @@ module.exports = function() {
         res.send({data : 'hello world', title: "Example android"});
     });
 
-    app.get('/merchantTransferFundingAndPayment', (req, res, next) => {
+    app.post('/merchantTransferFundingAndPayment', (req, res, next) => {
         try {
 
             // const validationErrors = validateParameters(req);
@@ -53,7 +53,6 @@ module.exports = function() {
             // const address = req.query.address;
             payment.createMerchantTransferFundingAndPayment()
                 .then (result => {
-                    console.log("=================> result " , result);
                     res.send(result);
                 });
             
