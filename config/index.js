@@ -15,9 +15,15 @@ const init = () => {
         
         //     patch: './config/TokenAbiOb.json'
         // },
+        // keyStore:{
+        //     consumerKey  : 'kUR3loVb14Ha_Doojmc0e1hkkxyNTVCc-bsZpu7728151b83!fcc55ccbb25842f295561ecf0afaf5500000000000000000',
+        //     keyStorePath : 'QRCodePaymentProject-sandbox.p12',
+        //     keyAlias     : 'keyalias',
+        //     keyPassword  : 'keystorepassword'
+        // },        
         keyStore:{
-            consumerKey  : 'kUR3loVb14Ha_Doojmc0e1hkkxyNTVCc-bsZpu7728151b83!fcc55ccbb25842f295561ecf0afaf5500000000000000000',
-            keyStorePath : 'QRCodePaymentProject-sandbox.p12',
+            consumerKey  : 'csbmYube20moXq3gDhaUyru4XJqYKVdcT9WMoMqL898a4c5d!49c8e11dfc274f239f04d1ef70ebce920000000000000000',
+            keyStorePath : 'QRCodePayment1-sandbox.p12',
             keyAlias     : 'keyalias',
             keyPassword  : 'keystorepassword'
         },
