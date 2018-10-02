@@ -2,16 +2,18 @@
 const p2m = require ('mastercard-p2m');
 const MasterCardAPI = p2m.MasterCardAPI;
 
+const Utils    = require('../../utils');
+
 module.exports = class PaymentController {
     constructor(config) {
         constructor();
         this.keyStore = config.keyStore;
-        this.dataTesting = this.getMerchantDataForTesting(config);
+        this.dataTesting = Utils.getMerchantDataForTesting(config);
         console.log("api key store ==> ", this.keyStore.consumerKey);
         console.log("api key store ==> ", this.keyStore.keyStorePath);
         console.log("api key store ==> ", this.keyStore.keyAlias);
         console.log("api key store ==> ", this.keyStore.keyPassword);
-        console.log("data testing  ==>  " , this.dataTesting );
+        console.log("data testing  ==>  ", this.dataTesting );
         this.initConfigKeystore();
     }
     initConfigKeystore(){
@@ -21,7 +23,7 @@ module.exports = class PaymentController {
             this.keyStore.keyAlias, 
             this.keyStore.keyPassword
         );
-        console.log("initConfigKeystore ==> ", authentication);
+
         MasterCardAPI.init({
             // sandbox: true,
             environment: "sandbox_static", 
@@ -30,17 +32,7 @@ module.exports = class PaymentController {
         });
     }
 
-    getMerchantDataForTesting(config) {
-        let dataJson;
-        try {
-            let path = config.pathFileData;
-            path = '../../' + path;
-            dataJson = require(path);
-        } catch (err) {
-            throw err;
-        }
-        return dataJson;
-    }
+
 
     createMerchantTransferFundingAndPayment(){
         

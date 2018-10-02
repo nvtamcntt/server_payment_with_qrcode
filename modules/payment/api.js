@@ -19,10 +19,11 @@ module.exports = function() {
     const config = this.config;
     const app    = this.app;
     const payment= new PaymentController(config);
+    /*----------------------------card param--------------------------------*/
 
     const validateParameters = (req) => {
         // Optional
-        req.checkQuery('page', 'Page needs to be a number').optional().isNumeric();
+        // req.checkQuery('page', 'Page needs to be a number').optional().isNumeric();
         // req.checkQuery('startBlock', 'startBlock needs to be a number').optional().isNumeric();
         // req.checkQuery('endBlock', 'endBlock needs to be a number').optional().isNumeric();
         // req.checkQuery('limit', 'limit needs to be a number').optional().isNumeric();
@@ -32,24 +33,26 @@ module.exports = function() {
 
         return req.validationErrors();
     };
+    /*----------------------------------------------------------------------*/
     app.get('/', function(req, res) {  
-        res.send('hello world');
+        res.send({data : 'hello world', title: "Example android"});
     });
 
-    app.get('/payment', (req, res, next) => {
+    app.get('/merchantTransferFundingAndPayment', (req, res, next) => {
         try {
-            const validationErrors = validateParameters(req);
 
-            if (validationErrors) {
-                next(new PaymentValidationError('Invalid request param', Constant.ERROR_CODE_PAYMENT_INVALID, validationErrors, true));
-            }
+            // const validationErrors = validateParameters(req);
+
+            // if (validationErrors) {
+            //     next(new PaymentValidationError('Invalid request param', Constant.ERROR_CODE_PAYMENT_INVALID, validationErrors, true));
+            // }
             
             // const fields = req.body || req.data;
             // const address = fields.address || fields['address'];
 
             // const address = req.query.address;
-            payment.createMerchantTransferFundingAndPayment();
-
+            // payment.createMerchantTransferFundingAndPayment();
+            res.send({ request: req })
         } catch (error) {
             next(error);
         }
