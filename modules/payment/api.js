@@ -38,7 +38,7 @@ module.exports = function() {
         res.send({data : 'hello world', title: "Example android"});
     });
 
-    app.post('/merchantTransferFundingAndPayment', (req, res, next) => {
+    app.get('/merchantTransferFundingAndPayment', (req, res, next) => {
         try {
 
             // const validationErrors = validateParameters(req);
@@ -51,11 +51,98 @@ module.exports = function() {
             // const address = fields.address || fields['address'];
 
             // const address = req.query.address;
-            payment.createMerchantTransferFundingAndPayment()
+            const data = req.body || req.data;
+            payment.createMerchantTransferFundingAndPayment(data)
                 .then (result => {
+                    console.log("======@@@@@@@@@@result=====>", result);
                     res.send(result);
+                }, (err) => {
+                    console.log("======@@@@@@@@@@@@@@@ERROR=====>", err);
+                    next(err);
                 });
             
+        } catch (error) {
+            next(error);
+        }
+    });
+
+    app.get('/merchantTransferAndPayment', (req, res, next) => {
+        try {
+            const data = req.body || req.data;
+            payment.createMerchantTransferAndPayment(data)
+                .then (result => {
+                    console.log("======@@@@@@@@@@result=====>", result);
+                    res.send(result);
+                }, (err) => {
+                    console.log("======@@@@@@@@@@@@@@@ERROR=====>", err);
+                    next(err);
+                });
+            
+        } catch (error) {
+            next(error);
+        }
+    });
+    /*get transaction with id*/
+    app.get('/merchantRetrievalReadByID', (req, res, next) => {
+        try {
+            const data = req.body || req.data;
+            payment.getMerchantRetrievalReadByID(data)
+                .then (result => {
+                    console.log("======@@@@@@@@@@result=====>", result);
+                    res.send(result);
+                }, (err) => {
+                    console.log("======@@@@@@@@@@@@@@@ERROR=====>", err);
+                    next(err);
+                });
+            
+        } catch (error) {
+            next(error);
+        }
+    });    
+    /*get transaction with ReadByReference*/
+    app.get('/merchantRetrievalReadByReference', (req, res, next) => {
+        try {
+            const data = req.body || req.data;
+            payment.getMerchantRetrievalReadByReference(data)
+                .then (result => {
+                    console.log("======@@@@@@@@@@result=====>", result);
+                    res.send(result);
+                }, (err) => {
+                    console.log("======@@@@@@@@@@@@@@@ERROR=====>", err);
+                    next(err);
+                });
+        } catch (error) {
+            next(error);
+        }
+    });
+
+
+    app.get('/readdDigitalAccountReferenceNumber', (req, res, next) => {
+        try {
+            const data = req.body || req.data;
+            payment.readDigitalAccountReferenceNumber(data)
+                .then (result => {
+                    console.log("======@@@@@@@@@@result=====>", result);
+                    res.send(result);
+                }, (err) => {
+                    console.log("======@@@@@@@@@@@@@@@ERROR=====>", err);
+                    next(err);
+                });
+        } catch (error) {
+            next(error);
+        }
+    });    
+    app.get('/testPaymentNotification', (req, res, next) => {
+        try {
+            const data = req.body || req.data;
+            payment.testPaymentNotification(data)
+                .then (result => {
+                    console.log("======@@@@@@@@@@result=====>", result);
+                    res.send(result);
+                }, (err) => {
+                    console.log("======@@@@@@@@@@@@@@@ERROR=====>", err);
+                    next(err);
+                });
         } catch (error) {
             next(error);
         }
