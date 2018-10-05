@@ -88,7 +88,7 @@ module.exports = function() {
             const data = req.body || req.data;
             payment.getMerchantRetrievalReadByID(data)
                 .then (result => {
-                    console.log("======@@@@@@@@@@result=====>", result);
+                    console.log("======@@@@@@@@@@ Transaction result=====>", result);
                     res.send(result);
                 }, (err) => {
                     console.log("======@@@@@@@@@@@@@@@ERROR=====>", err);

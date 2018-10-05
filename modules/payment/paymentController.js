@@ -71,7 +71,7 @@ module.exports = class PaymentController {
 
     }
     getMerchantRetrievalReadByID(data){
-        this.dataTesting = {"partnerId":"ptnr_BEeCrYJHh2BXTXPy_PEtp-8DBOo","transferId": "mtrn_44D6941D9D4AD3F106F1"}
+        this.dataTesting = {"partnerId":"ptnr_BEeCrYJHh2BXTXPy_PEtp-8DBOo","transferId": "mtrn_48FCB78D16B48B14D7FF"}
         let makeData = TESTING_MODE ? this.dataTesting : data;
         console.log("========TESTING_MODE=========", makeData);
         return new Promise((resolve, reject) => {
@@ -85,7 +85,7 @@ module.exports = class PaymentController {
         })
     }    
     getMerchantRetrievalReadByReference(data){
-        this.dataTesting = {"partnerId":"ptnr_BEeCrYJHh2BXTXPy_PEtp-8DBOo","ref":"MTRNREF_20160829130404970"}
+        this.dataTesting = {"partnerId":"ptnr_BEeCrYJHh2BXTXPy_PEtp-8DBOo","ref":"3007826709474811576743651734315950554325"}
         let makeData = TESTING_MODE ? this.dataTesting : data;
         return new Promise((resolve, reject) => {
             p2m.MerchantRetrieval.readByReference(makeData, function (error, data) {
